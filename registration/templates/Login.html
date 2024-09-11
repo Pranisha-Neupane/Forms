@@ -1,0 +1,50 @@
+{% extends "Home.html" %}
+{% load static %}
+
+{% block content %}
+
+  
+    <!-- main div -->
+    <div class="wrapper">
+
+      <span class="bg-animate"></span>
+      
+      <div class="form-box login">
+        <h2>Login</h2>
+
+        <form action="#" method="post">
+          {% csrf_token %}
+            <div class="input-box">
+              <input type="email" name="email" required />
+              <label>Email</label>
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+    
+
+          <div class="input-box">
+            <input type="password" name="password" required />
+            <label> Password </label>
+            <i class="fa-solid fa-lock"></i>
+          </div>
+
+          <!-- </div> -->
+
+<button type="submit" class="btn">Login
+</button>
+<div class="logreg-link">
+    <p>Don't have an account? <a href="{% url "signup" %}" class="register_link"> Sign Up</a></p>
+</div>
+
+       </form>
+      </div>
+
+
+<div class="info-text login">
+  <h2>Welcome Back</h2>
+  <p>Lorem ipsum dolor sit amet  quibusdam sequi perferendis aliquam illum quas nam optio!</p>
+</div>
+
+    </div>
+  
+
+    {% endblock content %}
