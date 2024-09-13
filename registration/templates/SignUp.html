@@ -1,61 +1,72 @@
 {% extends "Home.html" %}
 {% load static %}
+{% block title %}Signup{% endblock title %}
 {% block content %}
-  <div class="wrapper">
+ 
+<div class="wrapper">
+  <span class="bg-animate"></span>
 
-    <span class="bg-animate"></span>
-  
-    <div class="form-box register">
+  <div class="form-box register">
+      <!-- Messages section above the Register heading -->
+      {% if messages %}
+          <ul class="messages">
+              {% for message in messages %}
+              <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+                
+                {{message}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+          
+              {% endfor %}
+          </ul>
+      {% endif %}
+
+
+
       <h2>Register</h2>
-  
-      <form action="#" method="post">
-      {% csrf_token %}
-        <div class="input-box" >
-          <input type="text" name="username"  required />
-          <label>User Name</label>
-          <i class="fa-solid fa-user"></i>
-        </div>
-  
-  
-        <div class="input-box">
-          <input type="email" name="email" required />
-          <label>Email</label>
-          <i class="fa-solid fa-envelope"></i>
-        </div>
+      
+      <form  method="post">
+          {% csrf_token %}
+          <div class="input-box">
+              <input type="text" name="username" required />
+              <label for="username">Username:</label>
+              <i class="fa-solid fa-user"></i>
+          </div>
 
-        <div class="input-box">
-          <input type="password"name="pass1" required />
-          <label> Password </label>
-          <i class="fa-solid fa-lock"></i>
-        </div>
+          <div class="input-box">
+              <input type="email" name="email" required />
+              <label for="email">Email:</label>
+              <i class="fa-solid fa-envelope"></i>
+          </div>
 
-        
-        <div class="input-box">
-          <input type="password"name="pass2" required />
-          <label>Confirm Password </label>
-          <i class="fa-solid fa-lock"></i>
-        </div>
+          <div class="input-box">
+              <input type="password" name="pass1" required />
+              <label for="password">Password:</label>
+              <i class="fa-solid fa-lock"></i>
+          </div>
 
-        {% comment %} <div class="input-box">
-          <input type="password"name="password" required />
-          <label> Password2 </label>
-          <i class="fa-solid fa-lock"></i>
-        </div> {% endcomment %}
+          <div class="input-box">
+              <input type="password" name="pass2" required />
+              <label for="password_confirm">Confirm Password:</label>
+              <i class="fa-solid fa-lock"></i>
+          </div>
 
-        
-        <button type="submit" class="btn">Register</button>
-        <div class="logreg-link">
-          <p>Already have an account? <a href="{% url "login" %}"  class="login_link">Login</a></p>
-        </div>
+          <button type="submit" class="btn">Register</button>
+
+          <div class="logreg-link">
+              <p>Already have an account? <a href="{% url 'login' %}" class="login_link">Login</a></p>
+          </div>
       </form>
-    </div>
-  
-   <div class="info-text login">
-      <h2>Welcome Back</h2>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti dicta distinctio.</p>
-    </div> 
-  
   </div>
-  
 
-  {% endblock content %}
+  <div class="info-text login">
+      <h2>Welcome Back</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti dicta distinctio.</p>
+  </div>
+</div>
+{% endblock  %} 
+
+
+
+
+

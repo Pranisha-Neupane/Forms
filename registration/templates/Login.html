@@ -1,6 +1,6 @@
 {% extends "Home.html" %}
 {% load static %}
-
+{% block title %}Login{% endblock title %}
 {% block content %}
 
   
@@ -10,13 +10,26 @@
       <span class="bg-animate"></span>
       
       <div class="form-box login">
+      
+          <ul class="messages">
+              {% for message in messages %}
+              <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+                <strong></strong> 
+                {{message}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+          
+              {% endfor %}
+          </ul>
+      
+
         <h2>Login</h2>
 
-        <form action="#" method="post">
+        <form action="{% url 'login' %}" method="post">
           {% csrf_token %}
             <div class="input-box">
               <input type="email" name="email" required />
-              <label>Email</label>
+              <label>email</label>
               <i class="fa-solid fa-envelope"></i>
             </div>
     
